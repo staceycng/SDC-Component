@@ -13,16 +13,26 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?/,
-        include: SRC_DIR,
-        use: {
-            loader: 'babel-loader',
-            options: {
-              presets: ['@babel/preset-env', '@babel/preset-react'],
-            }
-        }
-        
+        loader: 'babel-loader',
+        test: /\.js[x]?/,
+        exclude: /node_modules/,
+        options: {
+          presets: ['@babel/preset-env', '@babel/preset-react'],
+        },
+      },
+      {
+        test: /\.css$/,
+        loader: "style-loader!css-loader"
+      }, {
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        loader: 'url-loader',
+        options: {
+          limit: 10000,
+    }
       }
-    ]
+    ],
+  },
+  resolve: {
+    extensions: ['.js', '.jsx'],
   }
 };

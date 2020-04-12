@@ -1,5 +1,6 @@
 import React from 'react';
 import $ from 'jquery';
+import star from '../../../public/images/fullstar.png'
 
 class Histogram extends React.Component {
     constructor(props){
@@ -48,7 +49,7 @@ class Histogram extends React.Component {
                         <span className="display-histogram-sr-only"></span>
                         <span className="display-histogram-star-rating-value">
                             <span className="display-histogram-star">5</span>
-                            <img className="display-histogram-yellow-star" src="https://bb-clone.s3-us-west-1.amazonaws.com/general/review_star.png" height="20"/>
+                            <img className="display-histogram-yellow-star" src={star} height="20"/>
                         </span>
                         {/* set custom width */}
                         <span className="display-histogram-progress">
@@ -63,7 +64,7 @@ class Histogram extends React.Component {
                         <span className="display-histogram-sr-only"></span>
                         <span className="display-histogram-star-rating-value">
                             <span className="display-histogram-star">4</span>
-                            <img className="display-histogram-yellow-star" src="https://bb-clone.s3-us-west-1.amazonaws.com/general/review_star.png" height="20"/>
+                            <img className="display-histogram-yellow-star" src={star} height="20"/>
                         </span>
                         {/* set custom width */}
                         <span className="display-histogram-progress" >
@@ -78,7 +79,7 @@ class Histogram extends React.Component {
                         <span className="display-histogram-sr-only"></span>
                         <span className="display-histogram-star-rating-value">
                             <span className="display-histogram-star">3</span>
-                            <img className="display-histogram-yellow-star" src="https://bb-clone.s3-us-west-1.amazonaws.com/general/review_star.png" height="20"/>
+                            <img className="display-histogram-yellow-star" src={star} height="20"/>
                         </span>
                         {/* set custom width */}
                         <span className="display-histogram-progress">
@@ -93,7 +94,7 @@ class Histogram extends React.Component {
                         <span className="display-histogram-sr-only"></span>
                         <span className="display-histogram-star-rating-value">
                             <span className="display-histogram-star">2</span>
-                            <img className="display-histogram-yellow-star" src="https://bb-clone.s3-us-west-1.amazonaws.com/general/review_star.png" height="20"/>
+                            <img className="display-histogram-yellow-star" src={star} height="20"/>
                         </span>
                         {/* set custom width */}
                         <span className="display-histogram-progress">
@@ -108,7 +109,7 @@ class Histogram extends React.Component {
                         <span className="display-histogram-sr-only"></span>
                         <span className="display-histogram-star-rating-value">
                             <span className="display-histogram-star">1</span>
-                            <img className="display-histogram-yellow-star" src="https://bb-clone.s3-us-west-1.amazonaws.com/general/review_star.png" height="20"/>
+                            <img className="display-histogram-yellow-star" src={star} height="20"/>
                         </span>
                         {/* set custom width */}
                         <span className="display-histogram-progress">

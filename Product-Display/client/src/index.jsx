@@ -59,48 +59,49 @@ constructor(props) {
   this.onHashChange = this.onHashChange.bind(this);
   this.expandReviews = this.expandReviews.bind(this);
   this.getNewItem = this.getNewItem.bind(this);
-  this.getPerItemName = this.getPerItemName.bind(this);
+  // this.getPerItemName = this.getPerItemName.bind(this);
 }
 
 getProducts(){
-  Axios.get('/product')
+  Axios.get('/product/sku/12')
   .then(results => {
-    let nameandCategory = results.data[0].name + ' - ' + results.data[0].category;
+    console.log('Got the result!--->', results);
+    let nameandCategory = results.data.rows[0].name + ' - ' + results.data.rows[0].category;
     console.log('name', nameandCategory);
    this.setState({
-     entire_product: results.data,
-     main_image: results.data[0].images[0],
+     entire_product: results.data.rows[0],
+     main_image: results.data.rows[0].images[0],
      item_name: nameandCategory,
-     nav_categories: results.data[0].header_titles,
-     static_img: results.data[0].images[0],
-     price: results.data[0].price, 
-     bundle_img: results.data[0].bundle,
-     bundle_total: results.data[0].bundle_total,
-     geek_squad_price: results.data[0].geek_squad_price,
-     still_img_videos: results.data[0].still_img_videos,
-     miniplayer_videos: results.data[0].miniplayer_videos,
-     reviews_breakdown: results.data[0].reviews_breakdown,
-     reviews_count: results.data[0].reviews_count,
-     questions: results.data[0].questions,
-     item_name_no_category: results.data[0].name,
-     description: results.data[0].description,
-     features: results.data[0].features,
-     included: results.data[0].included,
-     keyspecs_title: results.data[0].keyspecs_title,
-     keyspecs: results.data[0].keyspecs,
-     general_title: results.data[0].general_title,
-     general: results.data[0].general,
-     game_titles : results.data[0].game_Details_title,
-     game_details: results.data[0].game_details,
-     requirements_title:results.data[0].requirements_title,
-     requirements:results.data[0].requirements,
-     other: results.data[0].other,
-     other_title: results.data[0].other_title,
-     manu_img: results.data[0].manufacturer_img,
-     questions_img: results.data[0].questions_img,
-     video_length: results.data[0].video_length,
-     category: results.data[0].category,
-     compatible_platforms: results.data[0].compatible_platforms
+     nav_categories: results.data.rows[0].header_titles.split(','),
+     static_img: results.data.rows[0].images[0],
+     price: results.data.rows[0].price, 
+     bundle_img: results.data.rows[0].bundle,
+     bundle_total: results.data.rows[0].bundle_total,
+     geek_squad_price: results.data.rows[0].geek_squad_price,
+     still_img_videos: results.data.rows[0].still_img_videos,
+     miniplayer_videos: results.data.rows[0].miniplayer_videos,
+     reviews_breakdown: results.data.rows[0].reviews_breakdown,
+     reviews_count: results.data.rows[0].reviews_count,
+     questions: results.data.rows[0].questions,
+     item_name_no_category: results.data.rows[0].name,
+     description: `${results.data.rows[0].name} is a great game, fun for all ages!`,
+     features: results.data.rows[0].features,
+     included: results.data.rows[0].included,
+     keyspecs_title: results.data.rows[0].keyspecs_title,
+     keyspecs: results.data.rows[0].keyspecs,
+     general_title: results.data.rows[0].general_title,
+     general: results.data.rows[0].general,
+     game_titles : results.data.rows[0].game_Details_title,
+     game_details: results.data.rows[0].game_details,
+     requirements_title:results.data.rows[0].requirements_title,
+     requirements:results.data.rows[0].requirements,
+     other: results.data.rows[0].other,
+     other_title: results.data.rows[0].other_title,
+     manu_img: results.data.rows[0].manufacturer_img,
+     questions_img: results.data.rows[0].questions_img,
+     video_length: results.data.rows[0].video_length,
+     category: results.data.rows[0].category,
+     compatible_platforms: results.data.rows[0].compatible_platforms
    })
   })
   .catch( err => console.log('err fetching data port 3002', err))
@@ -118,55 +119,55 @@ onHashChange() {
   })
 }
 
-getPerItemName(sku) {
-  let name = sku;
-  Axios.get(`/product/name/${name}`)
-  .then(results => {
-    if (results.data === null) {
-      alert("Product not found");
-      return;
-    }
-    let newarray= [];
-    newarray.push(results.data);
-    let nameandCategory = results.data.name + ' - ' + results.data.category;
-    this.setState({
-      entire_product: newarray,
-      main_image: results.data.images[0],
-      item_name: nameandCategory,
-      nav_categories: results.data.header_titles,
-      static_img: results.data.images[0],
-      price: results.data.price, 
-      bundle_img: results.data.bundle,
-      bundle_total: results.data.bundle_total,
-      geek_squad_price: results.data.geek_squad_price,
-      still_img_videos: results.data.still_img_videos,
-      miniplayer_videos: results.data.miniplayer_videos,
-      reviews_breakdown: results.data.reviews_breakdown,
-      reviews_count: results.data.reviews_count,
-      questions: results.data.questions,
-      item_name_no_category: results.data.name,
-      description: results.data.description,
-      features: results.data.features,
-      included: results.data.included,
-      keyspecs_title: results.data.keyspecs_title,
-      keyspecs: results.data.keyspecs,
-      general_title: results.data.general_title,
-      general: results.data.general,
-      game_titles : results.data.game_Details_title,
-      game_details: results.data.game_details,
-      requirements_title:results.data.requirements_title,
-      requirements:results.data.requirements,
-      other: results.data.other,
-      other_title: results.data.other_title,
-      manu_img: results.data.manufacturer_img,
-      questions_img: results.data.questions_img,
-      video_length: results.data.video_length, 
-      category: results.data.category,
-      compatible_platforms: results.data.compatible_platforms
-    })
-})
-.catch(err => console.log(err))
-}
+// getPerItemName(sku) {
+//   let name = sku;
+//   Axios.get(`/product/name/${name}`)
+//   .then(results => {
+//     if (results.data === null) {
+//       alert("Product not found");
+//       return;
+//     }
+//     let newarray= [];
+//     newarray.push(results.data);
+//     let nameandCategory = results.data.name + ' - ' + results.data.category;
+//     this.setState({
+//       entire_product: newarray,
+//       main_image: results.data.images[0],
+//       item_name: nameandCategory,
+//       nav_categories: results.data.header_titles,
+//       static_img: results.data.images[0],
+//       price: results.data.price, 
+//       bundle_img: results.data.bundle,
+//       bundle_total: results.data.bundle_total,
+//       geek_squad_price: results.data.geek_squad_price,
+//       still_img_videos: results.data.still_img_videos,
+//       miniplayer_videos: results.data.miniplayer_videos,
+//       reviews_breakdown: results.data.reviews_breakdown,
+//       reviews_count: results.data.reviews_count,
+//       questions: results.data.questions,
+//       item_name_no_category: results.data.name,
+//       description: results.data.description,
+//       features: results.data.features,
+//       included: results.data.included,
+//       keyspecs_title: results.data.keyspecs_title,
+//       keyspecs: results.data.keyspecs,
+//       general_title: results.data.general_title,
+//       general: results.data.general,
+//       game_titles : results.data.game_Details_title,
+//       game_details: results.data.game_details,
+//       requirements_title:results.data.requirements_title,
+//       requirements:results.data.requirements,
+//       other: results.data.other,
+//       other_title: results.data.other_title,
+//       manu_img: results.data.manufacturer_img,
+//       questions_img: results.data.questions_img,
+//       video_length: results.data.video_length, 
+//       category: results.data.category,
+//       compatible_platforms: results.data.compatible_platforms
+//     })
+// })
+// .catch(err => console.log(err))
+// }
 
 getNewItem(sku) {
   Axios.get(`/product/sku/${sku}`)
@@ -278,9 +279,9 @@ render() {
            <Form entire_product={this.state.entire_product} image={this.state.main_image} item_name={this.state.item_name_no_category} geek_squad_price={this.state.geek_squad_price} compatible_platforms={this.state.compatible_platforms} category={this.state.category}/>
           </div> 
          
-        < CompletePurchase static_img={this.state.static_img} price={this.state.price} bundle_img={this.state.bundle_img} bundle_total={this.state.bundle_total}/>
+        {/* < CompletePurchase static_img={this.state.static_img} price={this.state.price} bundle_img={this.state.bundle_img} bundle_total={this.state.bundle_total}/> */}
         <Bought category={this.state.category}/>
-        <Accordion ref={this.openOneAccordion} 
+        {/* <Accordion ref={this.openOneAccordion} 
         description={this.state.description} 
         features={this.state.features} 
         included={this.state.included}
@@ -295,7 +296,7 @@ render() {
         other={this.state.other}
         other_title={this.state.other_title}
         manu_img={this.state.manu_img}
-        questions_img={this.state.questions_img}/>
+        questions_img={this.state.questions_img}/> */}
       </div>
       <div className="display-footer"></div>
     </div>

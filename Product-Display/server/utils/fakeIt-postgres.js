@@ -6,15 +6,15 @@ const fs = require('fs');
 const path = require('path');
 
 // Open write stream
-var stream = fs.createWriteStream('pgdata.txt');
-var entries = 1000000;
+// var stream = fs.createWriteStream('pgdata.txt');
+var entries = 10000000;
 var sku = 12;
 var gamesArr = [];
 
 // Handle stream error
-stream.on('error', function (err) {
-    console.log(err);
-});
+// stream.on('error', function (err) {
+//     console.log(err);
+// });
 
 // Loop through entry creation
 for(var i = 0; i < entries; i++){
@@ -29,29 +29,34 @@ for(var i = 0; i < entries; i++){
     helpers.subcategory,
     faker.lorem.word().toUpperCase() + faker.random.number(),
     faker.company.companyName(),
-    helpers.incrementer(sku),
+    sku,
     faker.finance.account(),
     helpers.dateGenerator(),
     rating,
     productprice,
     '{"https://source.unsplash.com/featured/electronics/550x550", "https://source.unsplash.com/featured/electronics/550x550", "https://source.unsplash.com/featured/electronics/550x550", "https://source.unsplash.com/featured/electronics/550x550", "https://source.unsplash.com/featured/electronics/550x550", "https://source.unsplash.com/featured/electronics/550x550"}',
-    helpers.platforms,
-    helpers.format,
+    `{${helpers.platforms}}`,
+    `{${helpers.format}}`,
     helpers.geekPriceGenerator(productprice),
     helpers.titles[index],
     helpers.ps4header,
     `{${hasVideo ? vids.generateVidGallery() : []}}`,
     hasVideo ? vids.ps4Vids[vidIndex]: "",
-    [vids.ps4VidTimeStamps[vidIndex]],
+    vids.ps4VidTimeStamps[vidIndex],
     reviews.reviewcount[index],
     `{${reviews.reviewbreakdown[index]}}`,
     reviews.questionCount[vidIndex]];
 
     var line = columns.join('\t') + '\n';
-    stream.write(line);
-    gamesArr.push(line);
+    try{
+        fs.appendFileSync('games.txt', line);
+    } catch(err){
+        console.log(err);
+    }
+
+    sku++;
 }
 
-module.exports = gamesArr;
+
   
-   
+

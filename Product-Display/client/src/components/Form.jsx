@@ -58,7 +58,7 @@ class Form extends React.Component {
                 <button className="display-rich-dropdown-trigger" >
                     <span className="display-variation-dropdown-tile" >
                     <span className="display-variation-image-wrapper" >
-                        <img className="display-variation-tile-image" src={this.props.compatible_platforms[0]} /> 
+                        <span>{this.props.compatible_platforms[0]}</span>
                     </span>
                     <i id="display-chevron-tile"className="up-icon ion-chevron-down" onClick={this.showDropDown}></i>
                     </span>
@@ -72,7 +72,7 @@ class Form extends React.Component {
                    <button className="display-rich-dropdown-trigger " >
                                 <span className="display-variation-dropdown-tile display-dropdown-show" >
                                 <span className="display-variation-image-wrapper" >
-                                    <img className="display-variation-tile-image" src={this.props.compatible_platforms[0]} /> 
+                                    <span>{this.props.compatible_platforms[0]}</span>
                                 </span>
                                 </span>
                     </button>
@@ -81,7 +81,7 @@ class Form extends React.Component {
                     <button className="display-rich-dropdown-trigger " >
                         <span className="display-variation-dropdown-tile display-dropdown-show" >
                         <span className="display-variation-image-wrapper" >
-                            <img className="display-variation-tile-image" src={this.props.compatible_platforms[1]} /> 
+                            <span>{this.props.compatible_platforms[0]}</span> 
                         </span>
                         </span>
                     </button>
@@ -145,20 +145,21 @@ class Form extends React.Component {
 
 
     render(){
+
       return (
         <div className="display-container-col-2-wrapper">
           <div className="display-column-price-row">
            <div className="display-pricing-container">
               <div className="display-price-match">
                   <div className="display-dollar-icon">
-                     <img className="display-dollar-image" src="https://bb-clone.s3-us-west-1.amazonaws.com/general/price_icon.png" height="14" width="16"></img>
+                     {/* <img className="display-dollar-image" src="https://bb-clone.s3-us-west-1.amazonaws.com/general/price_icon.png" height="14" width="16"></img> */}
                      <span className="display-dollar-text">Price Match Guarantee
                         </span>
                   </div>
               </div>
               <div className="display-price-match-wrapper">
-                <div className="display-price-match-amount" ><span className="display-price-match-dollar">$</span>
-                    {this.props.entire_product.length > 0 ? this.props.entire_product[0].price : '' }  
+                <div className="display-price-match-amount" ><span className="display-price-match-dollar">$</span> 
+                    {this.props.entire_product.price ? this.props.entire_product.price.substring(1) : '' } 
                </div>
               </div>
               

@@ -1,10 +1,12 @@
 import React from 'react';
 
 const ProductHeader = props => {
-    if (props.entire_product.length > 0) {
-        var {name, model, publisher, product_sku, release_date, esrb_rating} = props.entire_product[0];
+    // if (props.entire_product.length > 0) {
+    //     var {name, model, publisher, product_sku, release_date, esrb_rating} = props.entire_product;
        
-    }
+    // }
+    var {name, model, publisher, product_sku, release_date, esrb_rating} = props.entire_product;
+    console.log('name--->', name);
     return (
       <div>
           <div className='display-product-title'>

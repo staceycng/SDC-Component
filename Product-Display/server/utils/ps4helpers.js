@@ -7,7 +7,7 @@ const esrbRating = ["E (Everyone)", "M (Mature 17+)", "T (Teen 13+)", "E10+ (Eve
 // can change if product changes
 const category = "PlayStation 4";
 // can change if product changes
-const platforms = ["https://bb-clone.s3-us-west-1.amazonaws.com/general/platform_ps4.png", "https://bb-clone.s3-us-west-1.amazonaws.com/general/platform_xbox.png"];
+const platforms = ["PS4", "Nintendo Switch"];
 
 const prices= [59.99, 49.99, 29.99, 19.99, 39.99];
 // can change if product changes

@@ -1,5 +1,11 @@
 import React from 'react';
 import Histogram from './Histogram.jsx';
+import emptyStar from '../../../public/images/emptystar.png'
+import fullStar from '../../../public/images/fullstar.png'
+import halfStar from '../../../public/images/halfstar.png'
+import quarterStar from '../../../public/images/quarterstar.png'
+
+
 
 export default class Stars extends React.Component {
 constructor(props) {
@@ -52,12 +58,12 @@ calculateRating() {
     return (
       <div className="display-ratings-reviews">
         {placeholder.map((n, i) => (
-         <img src="https://bb-clone.s3-us-west-1.amazonaws.com/general/geek_stars.png" height="19"/>
+         <img src={fullStar} height="19"/>
         ))} 
-        {isQuarterStar ? <img src="https://bb-clone.s3-us-west-1.amazonaws.com/general/review_quarter_star.png" height="17"/> : <img src="https://bb-clone.s3-us-west-1.amazonaws.com/general/review_half_star.png" height="17"/>}
-        {wholeStars < 3 && <img src="https://bb-clone.s3-us-west-1.amazonaws.com/general/review_empty_star.png" height="17"/>}
-        {wholeStars < 3 && <img src="https://bb-clone.s3-us-west-1.amazonaws.com/general/review_empty_star.png" height="17"/>}
-        {wholeStars === 3 && <img src="https://bb-clone.s3-us-west-1.amazonaws.com/general/review_empty_star.png" height="17"/>}
+        {isQuarterStar ? <img src={quarterStar} height="17"/> : <img src={halfStar} height="17"/>}
+        {wholeStars < 3 && <img src={emptyStar} height="17"/>}
+        {wholeStars < 3 && <img src={emptyStar} height="17"/>}
+        {wholeStars === 3 && <img src={emptyStar} height="17"/>}
         <div className="display-c-reviews">
         <span className="display-star-rate">{rating}</span>
                 <span className="display-star-review">({this.props.reviews_count} Reviews) </span>
@@ -67,11 +73,11 @@ calculateRating() {
   } else {
     return (
       <div className="display-ratings-reviews">
-        <img src="https://bb-clone.s3-us-west-1.amazonaws.com/general/geek_stars.png" height="19"/>
-            <img src="https://bb-clone.s3-us-west-1.amazonaws.com/general/geek_stars.png" height="19"/>
-            <img src="https://bb-clone.s3-us-west-1.amazonaws.com/general/geek_stars.png" height="19"/>
-            <img src="https://bb-clone.s3-us-west-1.amazonaws.com/general/geek_stars.png" height="19"/>
-            <img src="https://bb-clone.s3-us-west-1.amazonaws.com/general/geek_stars.png" height="19"/>
+        <img src={fullStar} height="19"/>
+            <img src={fullStar} height="19"/>
+            <img src={fullStar} height="19"/>
+            <img src={fullStar} height="19"/>
+            <img src={fullStar} height="19"/>
             <div className="display-c-reviews">
                <span className="display-star-rate">{rating}</span>
                 <span className="display-star-review">({this.props.reviews_count} Reviews) </span>

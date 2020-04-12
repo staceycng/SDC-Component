@@ -1,4 +1,6 @@
 import React from 'react';
+import fullStar from '../../../public/images/fullstar.png';
+import geekLogo from '../../../public/images/geeklogo.png';
 
 const Geek = (props) => {
 
@@ -6,7 +8,7 @@ const Geek = (props) => {
      <div>
          <div className="display-geek-badge-container">
              <div className="display-geek-badge-image">
-                 <img src="display-geek-badd-image-img" src="https://bb-clone.s3-us-west-1.amazonaws.com/general/geek_badge.png" height="40"/>
+                 <img src="display-geek-badd-image-img" src={geekLogo} height="20"/>
              </div>
              <div className="display-geek-badge-header">
                 <div className="display-geek-badge-header-text">
@@ -14,11 +16,10 @@ const Geek = (props) => {
                 </div>
                 <div className="display-geek-ratings-container">
                     <div className="display-geek-header-stars">
-                        <img src="https://bb-clone.s3-us-west-1.amazonaws.com/general/geek_stars.png" height="17"/>
-                        <img src="https://bb-clone.s3-us-west-1.amazonaws.com/general/geek_stars.png" height="17"/>
-                        <img src="https://bb-clone.s3-us-west-1.amazonaws.com/general/geek_stars.png" height="17"/>
-                        <img src="https://bb-clone.s3-us-west-1.amazonaws.com/general/geek_stars.png" height="17"/>
-                        <img src="https://bb-clone.s3-us-west-1.amazonaws.com/general/geek_stars.png" height="17"/>
+                        <img src={fullStar} height="17"/>
+                        <img src={fullStar} height="17"/>
+                        <img src={fullStar} height="17"/>
+                        <img src={fullStar} height="17"/>
                     </div>
                     <div className="display-geek-header-review-count">(378)</div>
                 </div>

@@ -1,5 +1,7 @@
 import React from 'react';
 import CompareFooter from './CompareFooter.jsx';
+import checkbox from '../../../public/images/checkbox.png'
+import save from '../../../public/images/save.png'
 
 
 class Compare extends React.Component {
@@ -60,12 +62,13 @@ changeBoxColorWhite() {
           <div className="display-compare-box-container">
 
               <div className="display-compare-toggle-box" onMouseOver={this.changeBoxColorWhite} onMouseLeave={this.changeBoxColorGrey} onClick={this.handleToggle}> {this.showModal()}
-                <img className="display-compare-box" src={this.state.changeWhite ? "https://bb-clone.s3-us-west-1.amazonaws.com/general/geek_greybox.png" : "https://bb-clone.s3-us-west-1.amazonaws.com/general/geek_whitebox.png"} height="20" />
+                {/* <img className="display-compare-box" src={this.state.changeWhite ? "https://bb-clone.s3-us-west-1.amazonaws.com/general/geek_greybox.png" : "https://bb-clone.s3-us-west-1.amazonaws.com/general/geek_whitebox.png"} height="20" /> */}
+                <img className="display-compare-compare-box" src={checkbox} height="18"></img>
                </div>
                <div className="display-compare-box-text" onMouseOver={this.changeBoxColorWhite} onMouseLeave={this.changeBoxColorGrey} onClick={this.handleToggle}>Compare</div>
               
-              
-                <img className="display-compare-save-box" src={this.state.ribbonWhite ? "https://bb-clone.s3-us-west-1.amazonaws.com/general/compare_save_whiteribbon.png" : "https://bb-clone.s3-us-west-1.amazonaws.com/general/compare_save_blueribbon.png"} height="18" onClick={this.changeRibbon}/>
+                    <img className="display-compare-save-box" src={save} height="18"></img>
+                {/* <img className="display-compare-save-box" src={this.state.ribbonWhite ? "https://bb-clone.s3-us-west-1.amazonaws.com/general/compare_save_whiteribbon.png" : "https://bb-clone.s3-us-west-1.amazonaws.com/general/compare_save_blueribbon.png"} height="18" onClick={this.changeRibbon}/> */}
                 <span className="display-compare-save-text" >Saved</span>
           </div>
            <div>
