@@ -1,13 +1,12 @@
 const mongoose = require('mongoose');
 const URI = 'mongodb://localhost/bestbuy';
 const pg = require('pg');
+const { pgpass } = require('../login.js')
 var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/bestbuy";
 let _db;
-var connectionString = "postgres://postgres:Hellobatman123@localhost/bestbuy";
-
-
-
+  
+  var connectionString = `postgres://postgres:${pgpass}@localhost/bestbuy`;
 
   var connectToServer = (callback) => {
     MongoClient.connect(url, { useUnifiedTopology: true }, (err, client) => {
