@@ -7,8 +7,8 @@ const path = require('path');
 
 // Open write stream
 // var stream = fs.createWriteStream('pgdata.txt');
-var entries = 10000000;
-var sku = 12;
+var entries = 2000000;
+var sku = 2000013;
 var gamesArr = [];
 
 // Handle stream error
@@ -34,22 +34,18 @@ for(var i = 0; i < entries; i++){
     helpers.dateGenerator(),
     rating,
     productprice,
-    '{"https://source.unsplash.com/featured/electronics/550x550", "https://source.unsplash.com/featured/electronics/550x550", "https://source.unsplash.com/featured/electronics/550x550", "https://source.unsplash.com/featured/electronics/550x550", "https://source.unsplash.com/featured/electronics/550x550", "https://source.unsplash.com/featured/electronics/550x550"}',
-    `{${helpers.platforms}}`,
-    `{${helpers.format}}`,
     helpers.geekPriceGenerator(productprice),
     helpers.titles[index],
     helpers.ps4header,
-    `{${hasVideo ? vids.generateVidGallery() : []}}`,
-    hasVideo ? vids.ps4Vids[vidIndex]: "",
+    vids.ps4Vids[vidIndex],
     vids.ps4VidTimeStamps[vidIndex],
     reviews.reviewcount[index],
     `{${reviews.reviewbreakdown[index]}}`,
     reviews.questionCount[vidIndex]];
 
-    var line = columns.join('\t') + '\n';
+    var line = columns.join('|') + '\n';
     try{
-        fs.appendFileSync('games.txt', line);
+        fs.appendFileSync('games-revised5.txt', line);
     } catch(err){
         console.log(err);
     }

@@ -70,10 +70,8 @@ getProducts(){
     console.log('name', nameandCategory);
    this.setState({
      entire_product: results.data.rows[0],
-     main_image: results.data.rows[0].images[0],
      item_name: nameandCategory,
      nav_categories: results.data.rows[0].header_titles.split(','),
-     static_img: results.data.rows[0].images[0],
      price: results.data.rows[0].price, 
      bundle_img: results.data.rows[0].bundle,
      bundle_total: results.data.rows[0].bundle_total,
@@ -87,8 +85,6 @@ getProducts(){
      description: `${results.data.rows[0].name} is a great game, fun for all ages!`,
      features: results.data.rows[0].features,
      included: results.data.rows[0].included,
-     keyspecs_title: results.data.rows[0].keyspecs_title,
-     keyspecs: results.data.rows[0].keyspecs,
      general_title: results.data.rows[0].general_title,
      general: results.data.rows[0].general,
      game_titles : results.data.rows[0].game_Details_title,
