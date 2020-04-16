@@ -58,7 +58,7 @@ class Form extends React.Component {
                 <button className="display-rich-dropdown-trigger" >
                     <span className="display-variation-dropdown-tile" >
                     <span className="display-variation-image-wrapper" >
-                        <span>{this.props.compatible_platforms[0]}</span>
+                        <span>PS4</span>
                     </span>
                     <i id="display-chevron-tile"className="up-icon ion-chevron-down" onClick={this.showDropDown}></i>
                     </span>
@@ -72,7 +72,7 @@ class Form extends React.Component {
                    <button className="display-rich-dropdown-trigger " >
                                 <span className="display-variation-dropdown-tile display-dropdown-show" >
                                 <span className="display-variation-image-wrapper" >
-                                    <span>{this.props.compatible_platforms[0]}</span>
+                                    <span>PS4</span>
                                 </span>
                                 </span>
                     </button>
@@ -81,7 +81,7 @@ class Form extends React.Component {
                     <button className="display-rich-dropdown-trigger " >
                         <span className="display-variation-dropdown-tile display-dropdown-show" >
                         <span className="display-variation-image-wrapper" >
-                            <span>{this.props.compatible_platforms[0]}</span> 
+                            <span>Nintendo Switch</span> 
                         </span>
                         </span>
                     </button>

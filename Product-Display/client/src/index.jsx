@@ -51,7 +51,7 @@ constructor(props) {
    questions_img: "",
    video_length:[], 
    category:"",
-   compatible_platforms:[]
+   compatible_platforms:['PS5', 'Nintendo Switch']
   };
   this.getProducts = this.getProducts.bind(this);
   this.changeProduct = this.changeProduct.bind(this);
@@ -65,9 +65,9 @@ constructor(props) {
 getProducts(){
   Axios.get('/product/sku/12')
   .then(results => {
-    console.log('Got the result!--->', results);
+    console.log('Got the result!!!!--->', results);
     let nameandCategory = results.data.rows[0].name + ' - ' + results.data.rows[0].category;
-    console.log('name', nameandCategory);
+    console.log('name--->', results.data.rows[0].name);
    this.setState({
      entire_product: results.data.rows[0],
      item_name: nameandCategory,
@@ -180,36 +180,36 @@ getNewItem(sku) {
           main_image: results.data.images[0],
           item_name: nameandCategory,
           nav_categories: results.data.header_titles,
-          static_img: results.data.images[0],
+          // static_img: results.data.images[0],
           price: results.data.price, 
-          bundle_img: results.data.bundle,
-          bundle_total: results.data.bundle_total,
-          geek_squad_price: results.data.geek_squad_price,
-          still_img_videos: results.data.still_img_videos,
-          miniplayer_videos: results.data.miniplayer_videos,
-          reviews_breakdown: results.data.reviews_breakdown,
-          reviews_count: results.data.reviews_count,
-          questions: results.data.questions,
-          item_name_no_category: results.data.name,
-          description: results.data.description,
-          features: results.data.features,
-          included: results.data.included,
-          keyspecs_title: results.data.keyspecs_title,
-          keyspecs: results.data.keyspecs,
-          general_title: results.data.general_title,
-          general: results.data.general,
-          game_titles : results.data.game_Details_title,
-          game_details: results.data.game_details,
-          requirements_title:results.data.requirements_title,
-          requirements:results.data.requirements,
-          other: results.data.other,
-          other_title: results.data.other_title,
-          manu_img: results.data.manufacturer_img,
-          questions_img: results.data.questions_img,
+          // bundle_img: results.data.bundle,
+          // bundle_total: results.data.bundle_total,
+          // geek_squad_price: results.data.geek_squad_price,
+          // still_img_videos: results.data.still_img_videos,
+          // miniplayer_videos: results.data.miniplayer_videos,
+          // reviews_breakdown: results.data.reviews_breakdown,
+          // reviews_count: results.data.reviews_count,
+          // questions: results.data.questions,
+          // item_name_no_category: results.data.name,
+          // description: results.data.description,
+          // features: results.data.features,
+          // included: results.data.included,
+          // keyspecs_title: results.data.keyspecs_title,
+          // keyspecs: results.data.keyspecs,
+          // general_title: results.data.general_title,
+          // general: results.data.general,
+          // game_titles : results.data.game_Details_title,
+          // game_details: results.data.game_details,
+          // requirements_title:results.data.requirements_title,
+          // requirements:results.data.requirements,
+          // other: results.data.other,
+          // other_title: results.data.other_title,
+          // manu_img: results.data.manufacturer_img,
+          // questions_img: results.data.questions_img,
           video_length: results.data.video_length,
           category: results.data.category,
           compatible_platforms: results.data.compatible_platforms
-        })
+        }, () => {console.log('Set the initial state!')})
     })
     .catch(err => console.log(err))
 }
@@ -231,7 +231,7 @@ changeProduct(e) {
 
 componentDidMount(){
   this.getProducts();
-  this.onHashChange();
+  // this.onHashChange();
   window.onbeforeunload = function () {
     window.scrollTo(0, 0);
   }

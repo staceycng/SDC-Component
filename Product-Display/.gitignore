@@ -23,3 +23,16 @@ coverage
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
 dist/
+
+games.txt
+games.csv
+newrelic.js
+login.js
+games-revised.txt
+games-revised1.txt
+games-revised2.txt
+games-revised3.txt
+games-revised4.txt
+games-revised5.txt
+
+

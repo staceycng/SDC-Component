@@ -8,7 +8,7 @@ const path = require('path');
 // Open write stream
 // var stream = fs.createWriteStream('pgdata.txt');
 var entries = 2000000;
-var sku = 2000013;
+var sku = 6000013;
 var gamesArr = [];
 
 // Handle stream error

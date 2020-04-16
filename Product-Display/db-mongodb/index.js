@@ -6,7 +6,7 @@ var MongoClient = require('mongodb').MongoClient;
 var url = "mongodb://localhost:27017/bestbuy";
 let _db;
   
-  var connectionString = `postgres://${username}:${pgpass}@${server}/bestbuy`;
+  var connectionString = `postgres://${username}:${pgpass}@${server}/postgres`;
 
   var connectToServer = (callback) => {
     MongoClient.connect(url, { useUnifiedTopology: true }, (err, client) => {
