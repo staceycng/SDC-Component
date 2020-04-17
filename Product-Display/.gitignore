@@ -34,5 +34,6 @@ games-revised2.txt
 games-revised3.txt
 games-revised4.txt
 games-revised5.txt
-
-
+Dockerfile
+.env
+*.env
