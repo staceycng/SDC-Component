@@ -26,7 +26,7 @@
   "homepage": "https://github.com/CodyPenny/Product-display-Component#readme",
   "dependencies": {
     "artillery": "^1.6.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bluebird": "^3.7.2",
     "body-parser": "^1.19.0",
     "compression": "^1.7.4",
